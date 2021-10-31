@@ -1,5 +1,15 @@
 package com.learntodroid.smartpharmacy.data;
 
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.FRIDAY;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.MONDAY;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.RECURRING;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.SATURDAY;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.SUNDAY;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.THURSDAY;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.TUESDAY;
+import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.WEDNESDAY;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -16,16 +26,6 @@ import com.learntodroid.smartpharmacy.createalarm.DayUtil;
 
 import java.util.Calendar;
 
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.FRIDAY;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.MONDAY;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.RECURRING;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.SATURDAY;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.SUNDAY;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.THURSDAY;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.TITLE;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.TUESDAY;
-import static com.learntodroid.smartpharmacy.broadcastreceiver.AlarmBroadcastReceiver.WEDNESDAY;
-
 @Entity(tableName = "alarm_table")
 public class Alarm {
     @PrimaryKey
@@ -36,10 +36,16 @@ public class Alarm {
     private boolean started, recurring;
     private boolean monday, tuesday, wednesday, thursday, friday, saturday, sunday;
     private String title;
+    private int inventory;
+    private int dailyFrequency;
+    private int dose;
 
     private long created;
 
-    public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started, boolean recurring, boolean monday, boolean tuesday, boolean wednesday, boolean thursday, boolean friday, boolean saturday, boolean sunday) {
+    public Alarm(int alarmId, int hour, int minute, String title, long created, boolean started,
+                 boolean recurring, boolean monday, boolean tuesday, boolean wednesday,
+                 boolean thursday, boolean friday, boolean saturday, boolean sunday,
+                 int inventory, int dailyFrequency, int dose) {
         this.alarmId = alarmId;
         this.hour = hour;
         this.minute = minute;
@@ -58,6 +64,22 @@ public class Alarm {
         this.title = title;
 
         this.created = created;
+
+        this.inventory = inventory;
+        this.dailyFrequency = dailyFrequency;
+        this.dose = dose;
+    }
+
+    public int getInventory() {
+        return inventory;
+    }
+
+    public int getDailyFrequency() {
+        return dailyFrequency;
+    }
+
+    public int getDose() {
+        return dose;
     }
 
     public int getHour() {

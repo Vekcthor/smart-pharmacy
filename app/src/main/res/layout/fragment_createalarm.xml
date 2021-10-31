@@ -6,140 +6,172 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/fragment_createalarm_scheduleAlarmHeading"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/scheduleMedication"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/fragment_createalarm_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/scheduleMedicationAlarmTitle"
-        android:inputType="text"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout"
-        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
-
-    <LinearLayout
-        android:id="@+id/fragment_createalarm_timePickerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_scheduleAlarmHeading">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/scheduleMedicationAlarmHour"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:orientation="vertical" >
 
-        <TimePicker
-            android:id="@+id/fragment_createalarm_timePicker"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:timePickerMode="clock" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/fragment_createalarm_scheduleAlarmHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/scheduleMedication"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/scheduleMedicationRecurringTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_title" />
+            <EditText
+                android:id="@+id/fragment_createalarm_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/scheduleMedicationAlarmTitle"
+                android:inputType="text"
+                android:minHeight="48dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout"
+                tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
-    <LinearLayout
-        android:id="@+id/fragment_createalarm_recurring_options"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="521dp">
+            <LinearLayout
+                android:id="@+id/fragment_createalarm_timePickerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_scheduleAlarmHeading">
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkMon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/monday"
-            tools:ignore="TouchTargetSizeCheck" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/scheduleMedicationAlarmHour"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkTue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/tuesday"
-            tools:ignore="TouchTargetSizeCheck" />
+                <TimePicker
+                    android:id="@+id/fragment_createalarm_timePicker"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:timePickerMode="spinner" />
+            </LinearLayout>
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkWed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/wednesday"
-            tools:ignore="TouchTargetSizeCheck" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/scheduleMedicationDailyFrequencyTitle"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkThu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/thursday"
-            tools:ignore="TouchTargetSizeCheck" />
+            <Spinner
+                android:id="@+id/spinnerDailyFrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkFri"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/friday"
-            tools:ignore="TouchTargetSizeCheck" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/scheduleMedicationRecurringTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_title" />
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkSat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/saturday"
-            tools:ignore="TouchTargetSizeCheck" />
+            <LinearLayout
+                android:id="@+id/fragment_createalarm_recurring_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible"
+                tools:layout_editor_absoluteX="12dp"
+                tools:layout_editor_absoluteY="521dp">
 
-        <CheckBox
-            android:id="@+id/fragment_createalarm_checkSun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:height="48dp"
-            android:text="@string/sunday"
-            tools:ignore="TouchTargetSizeCheck" />
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkMon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/monday"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-    </LinearLayout>
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkTue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/tuesday"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkWed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/wednesday"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-    <Button
-        android:id="@+id/fragment_createalarm_scheduleAlarm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/scheduleMedicationSaveButton"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="678dp" />
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkThu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/thursday"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkFri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/friday"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkSat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/saturday"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/fragment_createalarm_checkSun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:height="48dp"
+                    android:text="@string/sunday"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/scheduleMedicationInventoryTotalTitle"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <EditText
+                android:id="@+id/editTextNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/fragment_createalarm_scheduleAlarm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/scheduleMedicationSaveButton"
+                tools:layout_editor_absoluteX="-4dp"
+                tools:layout_editor_absoluteY="678dp" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

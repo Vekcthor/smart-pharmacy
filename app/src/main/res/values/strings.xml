@@ -12,4 +12,6 @@
     <string name="scheduleMedicationAlarmTitle">Nome do Medicamento</string>
     <string name="scheduleMedicationSaveButton">Agendar Medicamento</string>
     <string name="scheduleMedicationRecurringTitle">Recorrência</string>
+    <string name="scheduleMedicationDailyFrequencyTitle">Frequencia Diaria</string>
+    <string name="scheduleMedicationInventoryTotalTitle">Quantidade Total</string>
 </resources>

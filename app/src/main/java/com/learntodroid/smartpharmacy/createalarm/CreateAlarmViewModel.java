@@ -9,7 +9,7 @@ import com.learntodroid.smartpharmacy.data.Alarm;
 import com.learntodroid.smartpharmacy.data.AlarmRepository;
 
 public class CreateAlarmViewModel extends AndroidViewModel {
-    private AlarmRepository alarmRepository;
+    private final AlarmRepository alarmRepository;
 
     public CreateAlarmViewModel(@NonNull Application application) {
         super(application);
