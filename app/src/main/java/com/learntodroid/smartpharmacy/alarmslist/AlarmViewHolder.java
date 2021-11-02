@@ -5,11 +5,13 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.learntodroid.smartpharmacy.data.Alarm;
 import com.learntodroid.smartpharmacy.R;
+import com.learntodroid.smartpharmacy.data.Alarm;
 
 public class AlarmViewHolder extends RecyclerView.ViewHolder {
     private TextView alarmTime;
@@ -17,7 +19,7 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
     private TextView alarmRecurringDays;
     private TextView alarmTitle;
 
-    Switch alarmStarted;
+    SwitchCompat alarmStarted;
 
     private OnToggleAlarmListener listener;
 
@@ -48,9 +50,9 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
         }
 
         if (alarm.getTitle().length() != 0) {
-            alarmTitle.setText(String.format("%s | %d | %d", alarm.getTitle(), alarm.getAlarmId(), alarm.getCreated()));
+            alarmTitle.setText(String.format("%s | Dose:%d", alarm.getTitle(), alarm.getDose()));
         } else {
-            alarmTitle.setText(String.format("%s | %d | %d", "Alarm", alarm.getAlarmId(), alarm.getCreated()));
+            alarmTitle.setText(String.format("%s | Dose:%d", "Alarm", alarm.getDose()));
         }
 
         alarmStarted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

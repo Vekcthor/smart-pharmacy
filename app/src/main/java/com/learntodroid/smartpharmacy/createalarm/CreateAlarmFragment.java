@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -30,25 +29,41 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CreateAlarmFragment extends Fragment implements AdapterView.OnItemSelectedListener {
-    @BindView(R.id.fragment_createalarm_timePicker) TimePicker timePicker;
-    @BindView(R.id.fragment_createalarm_title) EditText title;
-    @BindView(R.id.fragment_createalarm_scheduleAlarm) Button scheduleAlarm;
-    @BindView(R.id.fragment_createalarm_checkMon) CheckBox mon;
-    @BindView(R.id.fragment_createalarm_checkTue) CheckBox tue;
-    @BindView(R.id.fragment_createalarm_checkWed) CheckBox wed;
-    @BindView(R.id.fragment_createalarm_checkThu) CheckBox thu;
-    @BindView(R.id.fragment_createalarm_checkFri) CheckBox fri;
-    @BindView(R.id.fragment_createalarm_checkSat) CheckBox sat;
-    @BindView(R.id.fragment_createalarm_checkSun) CheckBox sun;
-    @BindView(R.id.fragment_createalarm_recurring_options) LinearLayout recurringOptions;
-    @BindView(R.id.spinnerDailyFrequency) Spinner spinnerDailyFrequency;
+    @BindView(R.id.fragment_createalarm_timePicker)
+    TimePicker timePicker;
+    @BindView(R.id.fragment_createalarm_title)
+    EditText title;
+    @BindView(R.id.fragment_createalarm_scheduleAlarm)
+    Button scheduleAlarm;
+    @BindView(R.id.fragment_createalarm_checkMon)
+    CheckBox mon;
+    @BindView(R.id.fragment_createalarm_checkTue)
+    CheckBox tue;
+    @BindView(R.id.fragment_createalarm_checkWed)
+    CheckBox wed;
+    @BindView(R.id.fragment_createalarm_checkThu)
+    CheckBox thu;
+    @BindView(R.id.fragment_createalarm_checkFri)
+    CheckBox fri;
+    @BindView(R.id.fragment_createalarm_checkSat)
+    CheckBox sat;
+    @BindView(R.id.fragment_createalarm_checkSun)
+    CheckBox sun;
+    @BindView(R.id.fragment_createalarm_recurring_options)
+    LinearLayout recurringOptions;
+    @BindView(R.id.spinnerDailyFrequency)
+    Spinner spinnerDailyFrequency;
+    @BindView(R.id.editTextDose)
+    EditText editTextDose;
+    @BindView(R.id.editTextInventory)
+    EditText editTextInventory;
 
     private CreateAlarmViewModel createAlarmViewModel;
+    private int frequency = 1;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         createAlarmViewModel = ViewModelProviders.of(this).get(CreateAlarmViewModel.class);
 
     }
@@ -83,6 +98,19 @@ public class CreateAlarmFragment extends Fragment implements AdapterView.OnItemS
     private void scheduleAlarm() {
         int alarmId = new Random().nextInt(Integer.MAX_VALUE);
 
+        int dose = 0;
+        String doseText = editTextDose.getText().toString();
+
+        if (!doseText.equals("") && !doseText.isEmpty() ){
+            dose = Integer.parseInt(doseText);
+        }
+
+        int inventory = 0;
+        String inventoryText = editTextInventory.getText().toString();
+        if (!inventoryText.equals("") && !inventoryText.isEmpty() ){
+            inventory = Integer.parseInt(inventoryText);
+        }
+
         Alarm alarm = new Alarm(
                 alarmId,
                 TimePickerUtil.getTimePickerHour(timePicker),
@@ -97,7 +125,10 @@ public class CreateAlarmFragment extends Fragment implements AdapterView.OnItemS
                 thu.isChecked(),
                 fri.isChecked(),
                 sat.isChecked(),
-                sun.isChecked(),0,0,0
+                sun.isChecked(),
+                inventory,
+                frequency,
+                dose
         );
 
         createAlarmViewModel.insert(alarm);
@@ -107,10 +138,29 @@ public class CreateAlarmFragment extends Fragment implements AdapterView.OnItemS
 
     public void onItemSelected(AdapterView<?> parent, View view,
                                int pos, long id) {
-        //parent.getItemAtPosition(pos).;
+        switch (pos) {
+            case 0:
+                frequency = 1;
+                break;
+            case 1:
+                frequency = 12;
+                break;
+            case 2:
+                frequency = 6;
+                break;
+            case 3:
+                frequency = 4;
+                break;
+            case 4:
+                frequency = 3;
+                break;
+            case 5:
+                frequency = 2;
+                break;
+        }
     }
 
     public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
+        frequency = 1;
     }
 }

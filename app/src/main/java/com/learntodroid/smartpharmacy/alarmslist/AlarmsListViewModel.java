@@ -12,8 +12,8 @@ import com.learntodroid.smartpharmacy.data.AlarmRepository;
 import java.util.List;
 
 public class AlarmsListViewModel extends AndroidViewModel {
-    private AlarmRepository alarmRepository;
-    private LiveData<List<Alarm>> alarmsLiveData;
+    private final AlarmRepository alarmRepository;
+    private final LiveData<List<Alarm>> alarmsLiveData;
 
     public AlarmsListViewModel(@NonNull Application application) {
         super(application);

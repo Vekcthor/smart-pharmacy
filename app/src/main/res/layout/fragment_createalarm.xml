@@ -148,6 +148,21 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/scheduleMedicationDoseTitle"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+            <EditText
+                android:id="@+id/editTextDose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number" />
+
+            <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,7 +171,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/editTextInventory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
