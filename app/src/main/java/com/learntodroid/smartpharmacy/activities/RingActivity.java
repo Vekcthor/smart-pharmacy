@@ -10,16 +10,26 @@ import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.learntodroid.smartpharmacy.R;
+import com.learntodroid.smartpharmacy.alarmslist.AlarmsListViewModel;
 import com.learntodroid.smartpharmacy.data.Alarm;
+import com.learntodroid.smartpharmacy.data.AlarmDao;
+import com.learntodroid.smartpharmacy.data.AlarmDatabase;
+import com.learntodroid.smartpharmacy.data.AlarmRepository;
 import com.learntodroid.smartpharmacy.service.AlarmService;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import android.app.Application;
 
 public class RingActivity extends AppCompatActivity {
     @BindView(R.id.activity_ring_dismiss) Button dismiss;

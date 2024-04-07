@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData;
 import java.util.List;
 
 public class AlarmRepository {
-    private AlarmDao alarmDao;
-    private LiveData<List<Alarm>> alarmsLiveData;
+    private final AlarmDao alarmDao;
+    private final LiveData<List<Alarm>> alarmsLiveData;
 
     public AlarmRepository(Application application) {
         AlarmDatabase db = AlarmDatabase.getDatabase(application);

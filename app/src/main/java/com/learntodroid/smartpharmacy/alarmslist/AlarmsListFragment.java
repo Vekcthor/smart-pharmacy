@@ -15,8 +15,8 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.learntodroid.smartpharmacy.data.Alarm;
 import com.learntodroid.smartpharmacy.R;
+import com.learntodroid.smartpharmacy.data.Alarm;
 
 import java.util.List;
 

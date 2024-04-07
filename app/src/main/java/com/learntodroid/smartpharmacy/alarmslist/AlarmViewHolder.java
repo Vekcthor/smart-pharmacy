@@ -3,7 +3,6 @@ package com.learntodroid.smartpharmacy.alarmslist;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,20 +12,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.learntodroid.smartpharmacy.R;
 import com.learntodroid.smartpharmacy.data.Alarm;
 
-public class AlarmViewHolder extends RecyclerView.ViewHolder {
-    private TextView alarmTime;
-    private ImageView alarmRecurring;
-    private TextView alarmRecurringDays;
-    private TextView alarmTitle;
+public class AlarmViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private final TextView alarmTime;
+    private final ImageView alarmRecurring;
+    private final TextView alarmRecurringDays;
+    private final TextView alarmTitle;
 
     SwitchCompat alarmStarted;
 
-    private OnToggleAlarmListener listener;
+    public IMyViewHolderClicks mListener;
 
-    public AlarmViewHolder(@NonNull View itemView, OnToggleAlarmListener listener) {
+    private final OnToggleAlarmListener listener;
+
+
+    public AlarmViewHolder(@NonNull View itemView, OnToggleAlarmListener listener, IMyViewHolderClicks clicksListener) {
         super(itemView);
 
+        mListener = clicksListener;
+
         alarmTime = itemView.findViewById(R.id.item_alarm_time);
+        alarmTime.setOnClickListener(this);
         alarmStarted = itemView.findViewById(R.id.item_alarm_started);
         alarmRecurring = itemView.findViewById(R.id.item_alarm_recurring);
         alarmRecurringDays = itemView.findViewById(R.id.item_alarm_recurringDays);
@@ -61,5 +66,15 @@ public class AlarmViewHolder extends RecyclerView.ViewHolder {
                 listener.onToggle(alarm);
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        int pos = getAdapterPosition();
+        mListener.onCustomClick(v, pos);
+    }
+
+    public static interface IMyViewHolderClicks {
+        public void onCustomClick(View caller, int test);
     }
 }
